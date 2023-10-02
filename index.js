@@ -4,7 +4,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const mongoDbString = process.env.ATLAS_URI;
-const PORT = 3000;
+const PORT = process.env.PORT;
 const routes = require("./routes/routes");
 
 mongoose.connect(mongoDbString);
