@@ -8,20 +8,10 @@ const mongoDbString = process.env.ATLAS_URI;
 const PORT = process.env.PORT;
 const routes = require("./routes/routes");
 
-async function runMongoose() {
-  await mongoose.connect(mongoDbString);
-}
+const Todo = require("./models/model");
 
-runMongoose();
-
-const database = mongoose.connection;
-
-database.on("error", (error) => {
-  console.log(error);
-});
-
-database.once("connected", () => {
-  console.log("Database connected");
+Todo.findOne().then(() => {
+  mongoose.connect(mongoDbString);
 });
 
 const app = express();
