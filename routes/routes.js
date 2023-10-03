@@ -9,7 +9,7 @@ router.post("/createTodo", async (req, res) => {
     title: req.body.todo.title,
     priority: req.body.todo.priority,
     checked: req.body.todo.checked,
-    due: req.body.todo.checked,
+    due: req.body.todo.due,
     created: req.body.todo.created,
   });
 
@@ -44,6 +44,8 @@ router.get("/getTodo/:id", async (req, res) => {
 // Update todo by id
 router.patch("/updateTodo/:id", async (req, res) => {
   try {
+    console.log(req.params);
+    console.log(req.body);
     const id = req.params.id;
     const updatedData = req.body;
     const options = { new: true };
