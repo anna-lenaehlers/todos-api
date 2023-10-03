@@ -1,12 +1,12 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const mongoDbString = process.env.ATLAS_URI;
 const PORT = process.env.PORT;
 const routes = require("./routes/routes");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 mongoose.connect(mongoDbString);
 const database = mongoose.connection;
@@ -24,10 +24,6 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-
-app.use(cors());
-
-app.use(json());
 
 app.use("/api", routes);
 
