@@ -1,15 +1,15 @@
-import { config } from "dotenv";
-config();
+const dotenv = require("dotenv");
+dotenv.config();
 
-import express, { json } from "express";
-import { connect, connection } from "mongoose";
-import cors from "cors";
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 const mongoDbString = process.env.ATLAS_URI;
 const PORT = process.env.PORT;
-import routes from "./routes/routes";
+const routes = require("./routes/routes");
 
-connect(mongoDbString);
-const database = connection;
+mongoose.connect(mongoDbString);
+const database = mongoose.connection;
 
 database.on("error", (error) => {
   console.log(error);
@@ -20,6 +20,10 @@ database.once("connected", () => {
 });
 
 const app = express();
+
+app.use(cors());
+
+app.use(express.json());
 
 app.use(cors());
 
