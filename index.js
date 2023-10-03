@@ -10,9 +10,8 @@ const routes = require("./routes/routes");
 
 const Todo = require("./models/model");
 
-mongoose.connect(mongoDbString).then(() => {
-  Todo.findOne();
-});
+mongoose.connect(mongoDbString);
+
 const database = mongoose.connection;
 
 database.on("error", (error) => {
