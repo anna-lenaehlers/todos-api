@@ -8,7 +8,7 @@ const mongoDbString = process.env.ATLAS_URI;
 const PORT = process.env.PORT;
 const routes = require("./routes/routes");
 
-mongoose.connect(mongoDbString);
+await mongoose.connect(mongoDbString);
 const database = mongoose.connection;
 
 database.on("error", (error) => {
