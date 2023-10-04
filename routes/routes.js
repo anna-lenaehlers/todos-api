@@ -6,11 +6,11 @@ const router = express.Router();
 // Post create todo
 router.post("/createTodo", async (req, res) => {
   const data = new Todo({
-    title: req.body.todo.title,
-    priority: req.body.todo.priority,
-    checked: req.body.todo.checked,
-    due: req.body.todo.due,
-    created: req.body.todo.created,
+    title: req.body.title,
+    priority: req.body.priority,
+    checked: req.body.checked,
+    due: req.body.due,
+    created: req.body.created,
   });
 
   try {
