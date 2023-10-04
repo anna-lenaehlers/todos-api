@@ -8,8 +8,6 @@ const mongoDbString = process.env.ATLAS_URI;
 const PORT = process.env.PORT;
 const routes = require("./routes/routes");
 
-const Todo = require("./models/model");
-
 mongoose.connect(mongoDbString);
 
 const database = mongoose.connection;
